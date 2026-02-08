@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const movieSchema = new mongoose.Schema({
   name: { 
@@ -54,4 +54,4 @@ movieSchema.pre('save', function() {
 
 // Create the Movie model
 const Movie = mongoose.model('Movie', movieSchema);
-module.exports = Movie;
+export default Movie;
