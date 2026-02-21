@@ -1,9 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import movieSchema from './schemas/schema.js';
-import movieResolvers from './resolvers/resolvers.js';
 import mongoose from 'mongoose';
+import schema from './graphql/schema.js';
 
 //import ApolloServer
 import { ApolloServer }  from '@apollo/server';
@@ -25,9 +24,12 @@ const connectDB = async() => {
 
 async function startServer() {
     //Define Apollo Server
+    // const server = new ApolloServer({
+    //   typeDefs: movieSchema,
+    //   resolvers: movieResolvers
+    // });
     const server = new ApolloServer({
-      typeDefs: movieSchema,
-      resolvers: movieResolvers
+      schema
     });
 
     //Start the Apollo Server
